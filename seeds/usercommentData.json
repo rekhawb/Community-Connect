@@ -1,0 +1,14 @@
+[
+
+    {
+        "post_id": 1,
+        "description": "we would love to join ( family of 4)",
+        "resident_id":2
+    },
+    
+    {
+        "post_id": 2,
+        "description": "Excited!!!",
+        "resident_id":1
+    }
+]

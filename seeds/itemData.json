@@ -1,0 +1,17 @@
+[
+    {
+          "name": "Men's clothing",
+          "description":"casual or formal wear",
+          "category_id": 1
+          
+    },
+
+    {
+        "name": "Women's clothing",
+        "description":"casual or formal wear",
+        "category_id": 1
+        
+  }
+
+
+]

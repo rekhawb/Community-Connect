@@ -1,0 +1,21 @@
+[
+    
+{
+"name":"Gordon Brown",
+"email":"gordon.brown@com.com",
+"password":"12345",
+"address":"50 Oakland Dr",
+"phone":"202-555-0156"
+
+},
+
+{
+    "name":"Celine Boman",
+    "email":"celine.boman@com.com",
+    "password":"12345",
+    "address":"23 Accra Street",
+    "phone":"202-555-0156"
+    
+    }
+
+]
