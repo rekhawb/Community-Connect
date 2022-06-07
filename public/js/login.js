@@ -12,18 +12,10 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
-  /*
-response.json().then( (data) => {
-    
-   let user = data.user;
-   alert(user.loggedIn);
-
-})*/
-
       if (response.ok) {
        
-        document.location.replace('/api/calevent');
-    //   process.exit(0);
+        window.location.assign('/api/calevent');
+   
       } else {
         alert('Failed to log in');
       }

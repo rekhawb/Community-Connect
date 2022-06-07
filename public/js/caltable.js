@@ -12,7 +12,7 @@ btn.forEach(link => link.addEventListener('click', (e) => {
  
 
 //callFetch(nameMonth);
-document.location.replace(`/api/calevent/month/${nameMonth}`);
+window.location.assign(`/api/calevent/month/${nameMonth}`);
 
 }));
 
@@ -61,6 +61,6 @@ cn = 7;
 function callFetch(nameMonth){
 
     alert( JSON.stringify({ nameMonth }));
-    document.location.replace(`/api/calevent/month/${nameMonth}`);
+    window.location.assign(`/api/calevent/month/${nameMonth}`);
 }
 //document.querySelector('.btn').addEventListener('submit', newFormHandler);

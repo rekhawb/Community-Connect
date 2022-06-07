@@ -4,7 +4,8 @@ const router = require('express').Router();
 
 
       router.get('/',async(req,res)=>{
-        res.render('homepage');
+        //req.session.loggedIn = false;
+        res.render('homepage',{loggedIn:req.session.loggedIn});
         
           });
 
@@ -23,12 +24,11 @@ const router = require('express').Router();
                     
                       });
 
+        
                       router.get('/logout',async(req,res)=>{
-                        res.render('logout');
+                        req.session.loggedIn = false;
+                        res.render('login');
                         
                           });
-            
-        
-     
 
 module.exports = router;
