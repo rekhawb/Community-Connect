@@ -41,15 +41,16 @@
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>CONTACT</p>
    </button>
-
+   
+  {{#if loggedIn}}
    <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>LOGOUT</p>
    </button>
-
-    {{#if loggedIn}}
-    <button id="logout"class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">Logout</button>
 {{/if}}
+
+  
+   <!-- <button id="logout"class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">Logout</button>-->
 
  
 </nav>
@@ -79,7 +80,3 @@
 
 
 <script src="/js/homepage.js"></script>
-
-{{#if loggedIn}}
-<script src="/js/homepage.js"></script>
-{{/if}}

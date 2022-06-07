@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     if(req.session.loggedIn){
 res.render('eventcall');
     }else{
-        res.render('login');
+       res.render('login');
     }
     
 

@@ -44,8 +44,12 @@ router.post('/login', async (req, res) => {
   
   router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
+      req.session.loggedIn = false;
+      res.redirect
       req.session.destroy(() => {
+        req.session.loggedIn = false;
         res.status(204).end();
+        
       });
     } else {
       res.status(404).end();

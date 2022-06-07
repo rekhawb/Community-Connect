@@ -11,21 +11,21 @@ e.stopPropagation();
 const nextCall = link.getElementsByTagName('p')[0].innerHTML;
 //alert(nextCall);
 if(nextCall === "LOGIN"){
-    document.location.replace('login');
+    window.location.replace('login');
 }else if(nextCall === "EVENTS"){
-   document.location.replace('/api/calevent');
+   window.location.assign('/api/calevent');
 }else if(nextCall === "NEWSLETTER"){
-    document.location.replace('/');
+    window.location.assign('/');
 }else if(nextCall === "DONATE"){
-    document.location.replace('/api/donation');
+    window.location.assign('/api/donation');
 }else if(nextCall === "SIGN UP"){
-    document.location.replace('/signup');
+    window.location.assign('/signup');
 }else if(nextCall === "CONTACT"){
-    document.location.replace('/contact');
+    window.location.assign('/contact');
 }else if(nextCall === "HOME"){
-    document.location.replace('homepage');
+     window.location.assign('homepage');
 }else if(nextCall === "LOGOUT"){
-    document.location.replace('login');
+    document.location.replace('/logout');
 }
 
 
