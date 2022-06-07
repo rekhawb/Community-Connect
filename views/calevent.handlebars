@@ -1,50 +1,36 @@
 
-  <div class="w3-container w3-row-padding">
-   <!--<img src="../images/avatar.png" style="width:25%;" class="w3-round"><br><br>-->
-<h4><b>EVENT PAGE</b></h4>
-<div class="w3-bar-block w3-bottombar w3-padding-16 w3-animate-right ">
-  <ul  >
-  <li class = "w3-padding-16">
-     <button class="w3-button w3-black" id ="1">January</button>
-     <button class="w3-button w3-black">February</button>
-     <button class="w3-button w3-black">March</button>
-     </li>
-     
-     <li  class = "w3-padding-16">
-      <button class="w3-button w3-black">April</button>
-      <button class="w3-button w3-black">May</button>
-       <button class="w3-button w3-black">June</button>
-      </li>
-      
-          <li  class = "w3-padding-16">
-      <button class="w3-button w3-black">July</button>
-      <button class="w3-button w3-black">August</button>
-      <button class="w3-button w3-black">September</button>
-      
-          <li  class = "w3-padding-16">
-      <button class="w3-button w3-black">October</button>
-      <button class="w3-button w3-black">November</button>
-      <button class="w3-button w3-black">December</button>
-      </li>
-         
-    </ul>
-  </div>
-<div class='menu-container'>
-  <div class='card-header col-md-10'>
-    <h2>
-      &#127869 MONTH NAME
-    </h2>
-  </div>
-  {{#each months as |month|}}
-    <div class='dish col-md-5'>
-      <p>
-       
-        {{month.month_name}}
-      </p>
-    </div>
-    
-  {{/each}}
-  </div>
-  </div>
 
-<script src='/public/js/caltable.js'></script>
+
+  <div class="w3-container w3-responsive w3-display-middle">
+ 
+      <div  class="w3-row w3-border w3-center">
+      {{#each months as |month|}}
+   
+  <div class="w3-card " style="padding-right:10px">
+
+<header class="w3-container w3-blue ">
+  <h1>{{month.name}}</h1>
+  <h2> {{month.month}} / {{month.day}}</h2>
+</header>
+
+<div class="w3-container">
+   
+  <p> {{month.description}}</p>
+</div>
+<div>
+<button class="w3-button w3-green">Register</button>
+  </div>
+<footer class="w3-container  w3-blue">
+  <h5>{{month.month_name}} - {{month.year}}</h5>
+</footer>
+
+</div>
+{{/each}}
+</div>
+
+</div>
+
+
+
+
+<script src='/js/caltable.js'></script>
