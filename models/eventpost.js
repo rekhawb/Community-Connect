@@ -23,9 +23,11 @@ Eventpost.init(
       event_dt: {
         type: DataTypes.DATEONLY,
         allowNull:false,
+        defaultValue: DataTypes.NOW,
         validate: {
           validator: function(v) {
               return dateValidationRegex.test(v); 
+            
           },
         },
         references: {

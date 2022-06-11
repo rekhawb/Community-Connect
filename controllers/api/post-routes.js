@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
                 },
               ]
         })
-         console.log(dbPostData);
+         //console.log(dbPostData);
         // dbPostdata = res.status(200).json(dbPostData);
 
 
@@ -48,6 +48,28 @@ router.get('/', async (req, res) => {
     }
 
 });
+
+// add new event page
+router.get('/newevent', async (req, res) => {
+
+    res.render('addnewevent');
+});
+
+router.post('/',async (req, res)=>{
+
+   try{
+       const newevent = await Eventpost.create({...req.body});
+        res.status(201).json(newevent);
+
+   } catch(err) {
+    console.log(err);
+    res.status(500).json(err);
+}  
+
+});
+
+
+
 
 
 module.exports = router;
