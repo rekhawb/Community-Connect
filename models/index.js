@@ -16,6 +16,11 @@ Resident.hasMany(Participant, {
     onDelete: 'CASCADE' 
   });
 
+  Eventpost.belongsTo(Resident,{
+    foreignKey: 'resident_id',
+    onDelete: 'CASCADE' 
+  });
+
   Eventpost.hasMany(Usercomment,{
     foreignKey: 'post_id',
     onDelete: 'CASCADE' 
