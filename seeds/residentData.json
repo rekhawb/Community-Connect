@@ -16,6 +16,15 @@
     "address":"23 Accra Street",
     "phone":"202-555-0156"
     
-    }
+    },
+
+    {
+        "name":"admin",
+        "email":"admin@com.com",
+        "password":"adminadmin",
+        "address":"NA",
+        "phone":"202-555-0156"
+        
+        }
 
 ]

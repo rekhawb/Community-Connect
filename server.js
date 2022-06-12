@@ -1,8 +1,10 @@
+
 const path = require('path');
+
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-
+//const multer = require("multer");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const routes = require('./controllers');
@@ -15,6 +17,17 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 //Import express-handlebars///////////////////////////////////////////////////////////////////////////////////////////////
+//const fileStorageEngine = multer.diskStorage({
+  //destination: (req,file,cb) => {
+    //cb(null,'/uploads')
+  //},
+  //filename: (req,file,cb) =>{
+//    cb(null,req.file.originalname)
+  //},
+//});
+
+//const upload = multer({storage: fileStorageEngine});
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,6 +58,7 @@ app.engine('handlebars',hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+//app.use(multer().array()) ;
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use(express.static(path.join(__dirname,'')))
