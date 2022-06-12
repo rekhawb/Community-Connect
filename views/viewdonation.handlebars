@@ -1,0 +1,73 @@
+
+
+{{> donation}}
+
+
+
+<div class="w3-container w3-responsive w3-display-middle w3-border-blue" style = "overflow-x:auto">
+     <tr>
+        <td class ="w3-blue" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     Donation Date
+      </td>
+
+      <td class ="w3-blue" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     Category Name
+      </td>
+      <td class ="w3-blue" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     Item Name
+      </td>
+      <td class ="w3-blue" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     Quantity
+      </td>
+      <td class ="w3-blue" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     Delete?
+      </td>
+      </tr>
+    {{#each donations as |donation|}}
+ <table class="w3-table-all w3-card-4 w3-padding-16 w3-animate-right w3-centered " style ="border: 1px solid white;border-spacing: 30px;">
+    <tr>
+        <td class =""  style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     {{donation.donation_dt}}-{{donation.participant_id}}
+      </td>
+       <td class ="" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     {{donation.category_name}}
+      </td>
+       <td class ="" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     {{donation.item_name}}
+      </td>
+       <td class ="" style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+     {{donation.item_qty}}
+      </td>
+       <td class ="" data-participant = {{donation.participant_id}} style ="padding: 15px; border: 1px solid white;border-spacing: 30px;">
+      <button class="w3-button w3-black btnDelete" id = "btnDelete" data-participant = {{donation.participant_id}}><i class="fa fa-trash-o"></i></button>
+      </td>
+
+{{/each}}
+</div>
+
+    <!--
+
+        <div class="w3-container w3-responsive w3-display-middle w3-blue">
+    
+<div class ="modal">
+    <!-- For each painting that belongs to this gallery, the painting-details partial is used to render each painting's data 
+    {{#each donations as |donation|}}
+    <div>
+
+    {{donation.participant_id}}
+  </div>
+
+  <div>
+
+    {{donation.category.description}}
+  </div>
+{{#each donation.category.items as |item|}}
+  <div>
+
+    {{item.name}} -  {{item.description}}
+  </div>
+  {{/each}}
+    {{/each}}
+</div>
+-->
+<script src="/js/donate.js"></script>

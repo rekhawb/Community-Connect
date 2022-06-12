@@ -1,0 +1,17 @@
+<div class="w3-container w3-responsive w3-display-right">
+   <a href = "/api/posts/newevent" class="w3-button w3-green">Add New Event</a>
+</div>
+
+<div class="w3-container w3-responsive w3-display-middle">
+
+{{#each dbData as |post|}}
+
+{{> postinfo post}}
+</div>
+
+{{else}}
+<h6 class="pb-4 has-text-centered is-italic">there are currently no posts</h6>
+{{/each}}
+</div>
+
+<script></script> 

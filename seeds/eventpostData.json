@@ -7,12 +7,16 @@
         "resident_id": 1
 
     },
+
     {
-        "name":"Treasure Hunt",
-        "description" : "Family friendly event - Sat, Jul 30, 6 PM – 8 PM",
-        "event_dt":"2022-07-30",
+        "name":"Fun by the pool",
+        "description" : "Family friendly event - Sat, Jun 25, 10 AM – 2 PM",
+        "event_dt" : "2022-07-30",
         "resident_id": 2
 
     }
+  
 
 ]
+
+

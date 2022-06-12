@@ -6,7 +6,9 @@ const postRoutes = require('./post-routes');
 
 
 
+
 router.use('/donation', donationRoutes);
+//router.use('/viewdonation', donationRoutes);
 
 router.use('/calevent', caleventRoutes);
 router.use('/resident',residentRoutes);

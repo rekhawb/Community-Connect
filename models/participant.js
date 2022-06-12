@@ -28,31 +28,34 @@ Participant.init(
           key: 'category_id',
         },
       },
+      category_name:{
+        type:DataTypes.STRING,
+        },
       item_id:{
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'item',
           key: 'item_id',
-        },
+        }
       },
-      pick_up:{
-        type: DataTypes.STRING,
-        allowNull: true,
-        defaultValue: "No",
+      item_name:{
+      type:DataTypes.STRING,
       },
-      pick_up_dt:{
+      donation_dt:{
           type:DataTypes.DATEONLY,
           allowNull: true,
-          defaultValue: "1900-01-01",
+          defaultValue: DataTypes.NOW,
 
-      },
-      pick_up_loc:{
-        type:DataTypes.STRING,
-        allowNull: true,
-        defaultValue: "N/A",
-
+  },
+  item_qty:{
+    type:DataTypes.INTEGER,
+    allowNull:false,
+    defaultValue:0,
+    validate:{
+      isNumeric: true
     }
+  }
   },
   {
    

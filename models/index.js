@@ -36,11 +36,50 @@ added junction table  residentcommentto avoid issues while deleting residents
 
 
 
+  Category.hasMany(Participant,{
+    foreignKey:'category_id',
+    onDelete:'CASCADE',
+    onUpdate:'CASCADE'
+  })
+
+  Participant.belongsTo(Category,{
+    foreignKey:'category_id',
+    onDelete:'CASCADE',
+    onUpdate:'CASCADE'
+  })
+
+  Eventpost.belongsTo(Resident,{
+    foreignKey: 'resident_id',
+    onDelete: 'CASCADE' 
+  });
+
+
+  Eventpost.hasMany(Usercomment,{
+    foreignKey:'post_id',
+    onDelete:'CASCADE',
+    onUpdate:'CASCADE'
+  })
+
+  Usercomment.belongsTo(Eventpost,{
+    foreignKey:'post_id',
+    onDelete:'CASCADE',
+    onUpdate:'CASCADE'
+  })
+
+
+
+
   Category.hasMany(Item, {
     foreignKey: 'category_id',
     onDelete: 'CASCADE',
     onUpdate:'CASCADE'
   });
+
+Item.hasOne(Category,{
+  foreignKey:'category_id',
+  onDelete:'CASCADE',
+  onUpdate:'CASCADE'
+})
 
 
   Item.hasMany(Participant,{
@@ -48,6 +87,14 @@ added junction table  residentcommentto avoid issues while deleting residents
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'
   })
+
+  Participant.belongsTo(Item,{
+    foreignKey:'item_id',
+    onDelete:'CASCADE',
+    onUpdate:'CASCADE'
+  })
+
+
 
 
 module.exports = { 
