@@ -1,10 +1,13 @@
 
 
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
     const email = document.querySelector('#email-login').value.trim();
+   // alert(email);
     const password = document.querySelector('#password-login').value.trim();
+    //alert(password);
   
     if (email && password) {
       const response = await fetch('/api/resident/login', {
@@ -14,7 +17,8 @@ const loginFormHandler = async (event) => {
       });
       if (response.ok) {
        
-        window.location.assign('/api/calevent');
+       // window.location.assign('/api/calevent');
+        window.location.assign('/');
    
       } else {
         alert('Failed to log in');

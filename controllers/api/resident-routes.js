@@ -25,6 +25,9 @@ router.post('/login', async (req, res) => {
         req.session.user_id = userData.resident_id;
         req.session.loggedIn = true;
 
+        console.log(req.session.loggedIn);
+        console.log(req.session.user_id);
+
         //console.log(req.session.logged_in);
        // console.log(`RESIDENT_ID: ${userData.resident_id}`);
 
@@ -56,6 +59,28 @@ router.post('/login', async (req, res) => {
     }
   });
 
+
+  router.post('/newresident', async (req, res) => {
+    try {
+      const newResidentData = await Resident.create({
+        name:req.body.name,
+        email: req.body.email,
+         password: req.body.password,
+         address:req.body.address,
+         phone:req.body.phone,
+         
+      });
+  
+      req.session.save(() => {
+        req.session.loggedIn = true;
+  
+        res.status(200).json(newResidentData);
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 
 

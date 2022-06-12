@@ -21,17 +21,31 @@ Usercomment.init(
           model: 'eventpost',
           key: 'post_id',
         }
+
+
     },
-    
-    
+
+    user_interested:{
+      type:DataTypes.STRING,
+      allowNull: false,
+      defaultValue:'no',
+      validate: {
+        isIn: [['yes', 'no']],
+      }
+    },
       resident_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'resident',
           key: 'resident_id'
         },
+
       }
     },
+    /*,
+
+    
+
   {
    
     sequelize,

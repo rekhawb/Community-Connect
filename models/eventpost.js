@@ -20,6 +20,7 @@ Eventpost.init(
       description: {
         type: DataTypes.STRING,
       },
+      
       event_dt: {
         type: DataTypes.DATEONLY,
         allowNull:false,
@@ -29,11 +30,7 @@ Eventpost.init(
               return dateValidationRegex.test(v); 
             
           },
-        },
-        references: {
-            model: 'time_dimension',
-            key: 'db_date',
-          },
+        }
     },
       resident_id: {
         type: DataTypes.INTEGER,
