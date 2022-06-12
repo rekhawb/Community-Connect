@@ -28,6 +28,7 @@ Eventpost.init(
         validate: {
           validator: function(v) {
               return dateValidationRegex.test(v); 
+            
           },
         }
     },

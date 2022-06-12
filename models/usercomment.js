@@ -22,6 +22,7 @@ Usercomment.init(
           key: 'post_id',
         }
 
+
     },
 
     user_interested:{
@@ -36,21 +37,15 @@ Usercomment.init(
         type: DataTypes.INTEGER,
         references: {
           model: 'resident',
-          key: 'resident_id',
           key: 'resident_id'
         },
 
       }
     },
     /*,
-      resident_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'resident',
-          key: 'resident_id',
-        },
-      }*/
- 
+
+    
+
   {
    
     sequelize,
