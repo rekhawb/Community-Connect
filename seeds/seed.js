@@ -8,6 +8,7 @@ const participantData = require('./participantData.json');
 const eventpostData = require('./eventpostData.json');
 const usercommentData = require('./usercommentData.json');
 
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 

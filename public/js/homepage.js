@@ -14,8 +14,8 @@ if(nextCall === "LOGIN"){
     window.location.replace('login');
 }else if(nextCall === "EVENTS"){
    window.location.assign('/api/calevent');
-}else if(nextCall === "NEWSLETTER"){
-    window.location.assign('/');
+}else if(nextCall === "NEWS"){
+    window.location.assign('/news');
 }else if(nextCall === "DONATE"){
    // window.location.assign('/api/donation');
    window.location.assign('/api/donation');
