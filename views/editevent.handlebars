@@ -1,0 +1,27 @@
+<article>
+  
+  <h2 class="title mt-5">edit event</h2><hr>
+  <form class="edit-post-form">
+    <div>
+        <label for="post-title">Event Name:</label>
+      <input class="input" name="post-title" type="text" value="{{post.name}}" />
+    </div>
+    <div>
+        <label for="post-content">Event Description:</label>
+      <input class="textarea" name="post-content" type="text" value="{{post.description}}" />
+    </div>
+    <div class="is-pulled-right">
+       created by you on {{format_date post.created_at}}
+      |
+      <a href="/api/posts/{{post.post_id}}"</a>
+    </div>
+    <button type="submit" class="button is-success">save event</button>
+    <button type="button" class="button is-danger delete-post-btn">delete event</button>
+  </form>
+</article>
+
+{{!-- {{> comments post.comments}} --}}
+
+<script src="/js/editevent.js"></script>
+<script src="/js/deleteevent.js"></script>
+{{!-- <script src="/js/comment.js"></script> --}}
