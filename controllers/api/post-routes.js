@@ -5,37 +5,23 @@ const withAuth = require('../../utils/auth');
 
 
 router.get('/', async (req, res) => {
-    try {
-        console.log('======================');
-        const dbPostData = await Eventpost.findAll({
-            attributes: [
-                'post_id',
-                'name',
-                'description',
-                'event_dt'
-            ],
-            //   order: [['created_at', 'DESC']],
-               include: [
+    try{
+    const query =  "select distinct e.name as event_name,e.description as event_desc, e.event_dt as event_date,r.name as resident_name from    eventpost   e   INNER JOIN usercomment c ON e.post_id = c.post_id INNER JOIN resident r ON c.resident_id = r.resident_id";
+     
 
-                {
-                  model: Usercomment,
-                  attributes: ['comment_id', 'description', 'post_id', 'resident_id'],
-                  include: {
-                    model: Resident,
-                    attributes: ['name']
-                  }
-                }
-             
-              ]
-        })
-         //console.log(dbPostData);
-        // dbPostdata = res.status(200).json(dbPostData);
+    const postData = await sequelize.query(
+        query, 
+        
+        { 
+          type: sequelize.QueryTypes.SELECT 
+        }
+      );
 
-        const dbData = dbPostData.map((post) =>
-            post.get({ plain: true })
-        );
+        const posts= postData;
+
+        console.log(posts);
         res.render('posts', {
-            dbData,
+            posts,loggedIn:req.session.loggedIn
 
         });
     }
@@ -45,6 +31,7 @@ router.get('/', async (req, res) => {
     }
 
 });
+
 
 router.get('/:id', (req, res) => {
     Eventpost.findOne({
@@ -133,7 +120,7 @@ router.get('/edit/:id', (req, res) => {
 // add new event page
 router.get('/newevent', async (req, res) => {
 
-    res.render('addnewevent');
+    res.render('addnewevent',{loggedIn:req.session.loggedIn});
 });
 
 router.post('/',async (req, res)=>{

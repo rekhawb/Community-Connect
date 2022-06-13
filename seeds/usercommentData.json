@@ -10,5 +10,11 @@
         "post_id": 2,
         "description": "Excited!!!",
         "resident_id":1
+    },
+    
+    {
+        "post_id": 1,
+        "description": "Excited!!!",
+        "resident_id":2
     }
 ]
