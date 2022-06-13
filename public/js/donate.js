@@ -21,21 +21,21 @@ btn.forEach(link => link.addEventListener('click',async(e)=>{
 item_id = e.target.getAttribute('data-item');
 //alert(req.session.user_id);
 //category_id = e.target.parentElement.id;
-alert("ItemId:"+item_id);
+//alert("ItemId:"+item_id);
 item_name = e.target.getAttribute('data-itemname');
-alert("itemName:"+item_name)
+//alert("itemName:"+item_name)
 category_id = e.target.getAttribute('data-category');
-alert("categoryId:"+category_id);
+//alert("categoryId:"+category_id);
 category_name = e.target.getAttribute('data-categoryname');
-alert("CategoryName:"+category_name);
+//alert("CategoryName:"+category_name);
 
 qty = e.target.previousElementSibling.id;
-alert("Item qty ID"+qty);
+//alert("Item qty ID"+qty);
 
 //qty = e.target.previousElementSibling.innerHTML;
 qty = document.getElementById(qty).value;
 //document.querySelector('#12').value.trim();
-alert("Quantity:"+qty);
+//alert("Quantity:"+qty);
 
 
 try{
@@ -49,6 +49,7 @@ const response = await fetch(`/api/donation/newcontribute`, {
 
   if (response.ok) {
    // req.session.contribute = true;
+   alert("Item added for donation");
     window.location.assign('/api/donation/view');
     
   } else {
@@ -74,13 +75,14 @@ btnDelete.forEach(link => link.addEventListener('click',async(e)=>{
     // participant_id = e.target.id;
   //  alert("clicked donate");
 //item_id = e.target.getAttribute('data-item');
-alert(participant_id);
+//alert(participant_id);
         const response = await fetch(`/api/donation/${participant_id}`, {
             method: 'DELETE'
           });
         
           if (response.ok) {
            // req.session.contribute = true;
+           alert("selected donation deleted");
             window.location.assign('/api/donation/view');
             
           } else {

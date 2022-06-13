@@ -4,7 +4,7 @@
     
         <div class="column">
             <p class=" has-text-primary-light"></p>
-      <a href="/post/{{post_id}}"  class="has-text-black is-capitalized is-pulled-left">{{name}} </a>
+      <a href="/post/{{post.post_id}}"  class="has-text-black is-capitalized is-pulled-left">{{post.event_name}} </a>
 
       </div>
 
@@ -17,10 +17,10 @@
     <div class="card-content">
         <div class="content has-text-justified">
 
-          {{description}}
+          {{post.event_desc}}
         </div>
             <div class="is-pulled-right">
-                <b>{{resident.name}}</b>              
+                <b>{{post.resident_name}}</b>              
  {{!-- {{format_date created_at}}  
                   <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a> --}}
             </div> 

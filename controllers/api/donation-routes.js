@@ -5,7 +5,7 @@ const { Resident, Category,Item,Participant } = require('../../models');
 
 router.get('/', async (req, res) => {
   if(req.session.loggedIn){
-    res.render('donation');
+    res.render('donation',{loggedIn:req.session.loggedIn});
         }else{
             res.render('login');
         }
@@ -36,12 +36,12 @@ router.get('/', async (req, res) => {
           data.get({ plain: true })
         );
 
-        console.log(donations);
+        //console.log(donations);
         //console.log(req.session.viewDonate);
     
-        res.render('viewdonation', { donations});
+        res.render('viewdonation', { donations,loggedIn:req.session.loggedIn});
       } catch (err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json(err);
       }
     });
@@ -69,9 +69,9 @@ router.get('/', async (req, res) => {
      //   console.log(categories);
         //console.log(req.session.viewDonate);
     
-        res.render('contribute', { categories});
+        res.render('contribute', { categories,loggedIn:req.session.loggedIn});
       } catch (err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json(err);
       }
     });
@@ -81,9 +81,9 @@ router.get('/', async (req, res) => {
 
       try{
 
-        console.log(req.body.category_id);
-        console.log(req.body.item_id);
-        console.log("Quantity"+req.body.qty);
+       // console.log(req.body.category_id);
+        //console.log(req.body.item_id);
+        //console.log("Quantity"+req.body.qty);
     
     const newContribution = await Participant.create({
       resident_id: req.session.user_id,
