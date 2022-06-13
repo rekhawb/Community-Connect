@@ -1,48 +1,39 @@
+
+
 {{>navbar}}
 
-<div class="w3-container w3-responsive w3-display-top news">
-   <a href = "/api/posts/newevent" class="w3-button w3-green">Add New Event</a>
-</div>
-
-
+<div class="w3-container w3-responsive w3-display-middle">
+  <div class = "row">
 
 {{#each posts as |post|}}
+<div class = "col">
 
-<div class="card mb-6">
-  <header class="card-header card-header-title has-background-grey-lighter">
-    
-        <div class="column">
-            <p class=" has-text-primary-light"></p>
-      <a href="/api/posts/{{post.post_id}}"  class="has-text-black is-capitalized is-pulled-left">{{post.event_name}} </a>
-
-      <a href=""  class="has-text-black is-capitalized is-pulled-right">{{post.event_date}} </a>
-
-      </div>
-
-      <div class="column">
-      <span class=""> </span>
-      </div>
-    
-  </header>
-
-    <div class="card-content">
-        <div class="content has-text-justified">
-
-          {{post.event_desc}}
-        
-        </div>
-      
-            <div class="is-pulled-right">
-                <b>{{post.resident_name}}</b>              
+<div class="card" style="width: 18rem;">
  
-            </div> 
-
-
+  <div class="card-body" style =" min-height: 200px;">
+    <h5 class="card-title"> <a href="/api/posts/{{post.post_id}}"  class="has-text-black is-capitalized is-pulled-left">{{post.event_name}} </a> </h5><br>
+    <p class="card-text has-text-black is-pulled-left"> {{post.event_desc}}.</p><br>
+   <div class="card-footer">
+    <div class="row">
+      <div class = "col">
+    <a href="/api/posts/edit/{{post.post_id}}" ><button class="btn btn-primary btn-sm text-nowrap">edit post</button></a>
+    </div>
+     
+     <div class = "col">
+    <a href="/api/posts/{{post.post_id}}"><button class="btn btn-success btn-sm text-nowrap">add comment</button></a>
+   </div>
+   </div>
+   </div>
+  </div>
+</div>
 </div>
 
 {{/each}}
-
 </div>
+</div>
+
+
+
 
 
 
