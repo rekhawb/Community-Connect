@@ -7,6 +7,9 @@
 {{#each dbData as |post|}}
 
 {{> postinfo post}}
+ <a href="/api/posts/edit/{{post.post_id}}"><button class="button mb-5 ml-5 is-warning">edit post</button></a>
+<a href="/api/posts/{{post.post_id}}"><button class="button mb-5 ml-5 is-warning">add comment</button></a>
+
 </div>
 
 {{else}}
