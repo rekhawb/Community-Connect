@@ -46,6 +46,28 @@ var fs = require("fs");
 
 
 
+                        router.get('/gallery',async(req,res)=>{
+                          req.session.loggedIn = true;
+                          if(req.session.user === "admin"){
+                            req.session.admin = true;
+                          
+                          }else{
+                            req.session.admin = false;
+                          }
+  
+                           // var filename = 'news.json';
+                           // var fileDir = __dirname + '/api/public/uploads/'+filename;
+                           // var file = fs.readFileSync(fileDir);
+                            //var jsonObject = JSON.parse(file);
+                            //res.json(jsonObject)
+                            //console.log(jsonObject);
+  
+                            res.render('gallerydisplay');
+  
+                          })
+
+
+
                         
 
                           

@@ -11,14 +11,17 @@
       <input class="textarea" name="post-content" type="text" value="{{post.description}}" />
     </div>
     <div class="is-pulled-right">
+
       {{post.name}} created by you on {{format_date post.event_dt}}
       |
       <a href="/api/posts/{{post.post_id}}">{{post.usercomments.length}} {{format_plural "usercomment" post.usercomments.length}}</a>
+
     </div>
     <button type="submit" class="button is-success">save event</button>
     <button type="button" class="button is-danger delete-post-btn">delete event</button>
   </form>
 </article>
+
 
 {{> comments post.comments}}
 
@@ -27,3 +30,5 @@
 <script src="/js/editevent.js"></script>
 <script src="/js/deleteevent.js"></script>
  <script src="/js/comment.js"></script> --
+
+

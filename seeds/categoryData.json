@@ -3,6 +3,26 @@
           "name": "clothing",
           "description":"Includes formal Wear, Casual Wear of all ages"
           
-    }
+    },
+    {
+        "name": "furniture",
+        "description":"gently used furniture"
+        
+  },
+  {
+    "name": "computers",
+    "description":"computer and electronic equipment"
+    
+},
+{
+    "name": "Appliances",
+    "description":"Includes large and small appliances"
+    
+},
+{
+    "name": "Home décor",
+    "description":"Paintings, artifical plants etc.,"
+    
+}
 
 ]

@@ -1,21 +1,38 @@
-<div class="w3-container w3-responsive w3-display-right">
-   <a href = "/api/posts/newevent" class="w3-button w3-green">Add New Event</a>
-</div>
 
+
+{{>navbar}}
 <div class="w3-container w3-responsive w3-display-middle">
+  <div class = "row">
 
-{{#each dbData as |post|}}
+{{#each posts as |post|}}
+<div class = "col">
 
-{{> postinfo post}}
- <a href="/api/posts/edit/{{post.post_id}}"><button class="button mb-5 ml-5 is-warning">edit post</button></a>
- <a href="/api/posts/{{post.post_id}}"><button class="button mb-5 ml-5 is-warning">add comment</button></a>
+
+<div class="card" style="width: 18rem;">
+ 
+  <div class="card-body" style =" min-height: 200px;">
+    <h5 class="card-title"> <a href="/api/posts/{{post.post_id}}"  class="has-text-black is-capitalized is-pulled-left">{{post.event_name}} </a> </h5><br>
+    <p class="card-text has-text-black is-pulled-left"> {{post.event_desc}}.</p><br>
+   <div class="card-footer">
+    <div class="row">
+      <div class = "col">
+    <a href="/api/posts/edit/{{post.post_id}}" ><button class="btn btn-primary btn-sm text-nowrap">edit post</button></a>
+    </div>
+     
+     <div class = "col">
+    <a href="/api/posts/{{post.post_id}}"><button class="btn btn-success btn-sm text-nowrap">add comment</button></a>
+   </div>
+   </div>
+   </div>
+  </div>
+</div>
 
 </div>
 
-{{else}}
-<h6 class="pb-4 has-text-centered is-italic">there are currently no posts</h6>
 {{/each}}
 </div>
+</div>
 
 
-<script></script> 
+
+
