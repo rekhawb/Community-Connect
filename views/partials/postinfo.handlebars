@@ -21,6 +21,6 @@
         </div>
             <div class="is-pulled-right">
                 <b>{{resident.name}}</b>              
- {{!-- {{format_date created_at}}  
-                  <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a> --}}
+ {{ event_dt}}  
+                  <a href="/api/posts/{{post.post_id}}">{{usercomments.length}} {{format_plural "usercomment" usercomments.length}}</a>
             </div> 

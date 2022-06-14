@@ -11,24 +11,21 @@ router.get('/', async (req, res) => {
             attributes: [
                 'post_id',
                 'name',
-                'description',
-                'event_dt'
-            ],
-            //   order: [['created_at', 'DESC']],
+                'description'                
+            ],            
                include: [
-
                 {
                   model: Usercomment,
                   attributes: ['comment_id', 'description', 'post_id', 'resident_id'],
-                  include: {
-                    model: Resident,
-                    attributes: ['name']
-                  }
-                }
-             
+                //   include: {
+                //     model: Resident,
+                //     attributes: ['name']
+                //   }
+                }             
               ]
-        })
-         //console.log(dbPostData);
+        });
+        
+        
         // dbPostdata = res.status(200).json(dbPostData);
 
         const dbData = dbPostData.map((post) =>
@@ -46,45 +43,54 @@ router.get('/', async (req, res) => {
 
 });
 
-router.get('/:id', (req, res) => {
+
+  //==============================================================================
+  router.get('/:id', (req, res) => {
     Eventpost.findOne({
       where: {
         post_id: req.params.id
       },
       attributes: [
         'post_id',
-        'description',        
+        'name',
+        'event_dt',
+        'description'
       ],
-      include: [
-        // include the Comment model here:
-        {
-          model: Resident,
-          attributes: ['name']
-        },
-        // {
-        //   model: Comment,
-        //   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        //   include: {
-        //     model: User,
-        //     attributes: ['username']
-        //   }
-        // }
-      ]
+    //   include: [
+    //     {
+    //       model: Usercomment,
+    //       attributes: ['comment_id', 'description', 'post_id', 'resident_id', 'created_at'],
+    //       include: {
+    //         model: Resident,
+    //         attributes: ['name']
+    //       }
+    //     },
+    //     {
+    //       model: Resident,
+    //       attributes: ['name']
+    //     }
+        
+    //   ]
     })
       .then(dbPostData => {
         if (!dbPostData) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
-        }
-        res.json(dbPostData);
+        }  
+        
+        const post = dbPostData.get({ plain: true });
+  
+        // pass data to template
+        res.render('addnewcomment', {
+            post,
+            loggedIn: req.session.loggedIn
+          });
       })
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
-  //==============================================================================
-
+});
 //get the event by id
 router.get('/edit/:id', (req, res) => {
     Eventpost.findOne({
