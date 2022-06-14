@@ -19,7 +19,7 @@ async function editFormHandler(event) {
       });
       
       if (response.ok) {
-        document.location.replace('/api/posts');
+        window.location.assign('/api/posts/myevents');
       } else {
         alert(response.statusText);
       }

@@ -19,7 +19,7 @@ async function deleteFormHandler(event) {
       console.log("ok");
 
       if (response.ok) {
-        document.location.replace('/api/posts');
+        document.location.replace('/api/posts/myevents');
       } else {
         alert(response.statusText);
       }

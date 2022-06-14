@@ -14,6 +14,14 @@
         "event_dt" : "2022-07-30",
         "resident_id": 2
 
+    },
+
+    {
+        "name":"Movie Night",
+        "description" : "Family friendly event - Sat, Jun 25, 10 AM – 2 PM",
+        "event_dt" : "2022-07-30",
+        "resident_id": 3
+
     }
   
 
