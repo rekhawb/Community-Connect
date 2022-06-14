@@ -14,16 +14,16 @@
     <div>
 <a href = "/api/posts/" class="w3-button w3-grey" >Go to Event page</a>
 
-    </div>
+    </div><br>
   
-  <div class = "row" style="margin-bottom: 1em">
+  <div class = "row">
 
 {{#each posts as |post|}}
 
 
-  <div class="col" style="margin-bottom: 1em;">
+  <div class="col">
 
-<div class="card" style="width: 18rem; ">
+<div class="card" style="width: 18rem;">
  
   <div class="card-body">
     <h5 class="card-title bg-secondary text-white"><a href="/api/posts/{{post.post_id}}"  class="has-text-black is-capitalized  is-pulled-left">{{post.event_name}} </a></h5>
@@ -35,7 +35,7 @@
     <li class="list-group-item">By: {{post.resident_name}}</li>
   </ul>
   <div class="card-body">
-    
+     <a href="/api/posts/edit/{{post.post_id}}" ><button class="btn btn-primary btn-sm text-nowrap">edit post</button></a>
     
       <a href="/api/comments/{{post.post_id}}"><button class="btn btn-success btn-sm text-nowrap">add comment</button></a>
   </div>
@@ -52,8 +52,6 @@
 </div>
 </div>
 </div>
-
-
 
 
 
