@@ -24,9 +24,13 @@ router.post("/",upload,async(req,res) =>{
     console.log(pathName);
     console.log(req.file);*/
    // res.session.loggedIn = true;
-
-    res.redirect('/gallery');
-
+   req.session.save(() => {
+          
+    req.session.loggedIn = true;
+ 
+    //res.redirect('/gallery',{loggedIn:req.session.loggedIn});
+    res.redirect('/gallery',{loggedIn:req.session.loggedIn});
+  });
 
   });
 

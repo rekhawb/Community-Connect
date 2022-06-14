@@ -55,8 +55,6 @@ router.get('/', async (req, res) => {
           
           include    : [{
                   model:Item,
-                 
-
           }]
         
         
@@ -66,10 +64,17 @@ router.get('/', async (req, res) => {
           data.get({ plain: true })
         );
 
+        req.session.save(() => {
+          
+          req.session.loggedIn = true;
+          req.session.itemdisplay = false;
+
      //   console.log(categories);
         //console.log(req.session.viewDonate);
+        //res.status(200).json(categories);
     
-        res.render('contribute', { categories,loggedIn:req.session.loggedIn});
+        res.render('contribute', { categories,loggedIn:req.session.loggedIn,itemdisplay:req.session.itemdisplay});
+      });
       } catch (err) {
         //console.log(err);
         res.status(500).json(err);
@@ -77,13 +82,50 @@ router.get('/', async (req, res) => {
     });
 
 
-    router.post('/newcontribute', async(req,res) =>{
+    router.get('/contribute/:id/:name', async (req, res) => {
+      try {
 
+
+        
+        const categoryData = await Item.findAll({
+          where: {
+            category_id: req.params.id
+          },
+          
+         
+        
+        });
+    
+        const categories =categoryData.map((data) =>
+          data.get({ plain: true })
+        );
+
+     //   console.log(categories);
+        req.session.save(() => {
+          
+          req.session.loggedIn = true;
+          req.session.itemdisplay = true;
+          req.session.catName = req.params.name;
+
+     //   console.log(categories);
+        //console.log(req.session.viewDonate);
+        //res.status(200).json(categories);
+    
+        res.render('contribute', { categories,loggedIn:req.session.loggedIn,itemdisplay:req.session.itemdisplay,catName:req.session.catName});
+      });
+      } catch (err) {
+        //console.log(err);
+        res.status(500).json(err);
+      }
+    });
+    
+
+
+    router.post('/newcontribute', async(req,res) =>{
+   
+      if(req.session.loggedIn){
       try{
 
-       // console.log(req.body.category_id);
-        //console.log(req.body.item_id);
-        //console.log("Quantity"+req.body.qty);
     
     const newContribution = await Participant.create({
       resident_id: req.session.user_id,
@@ -92,6 +134,7 @@ router.get('/', async (req, res) => {
       item_qty: req.body.qty,
       category_name:req.body.category_name,
       item_name:req.body.item_name
+      
 
       
     });
@@ -100,6 +143,13 @@ router.get('/', async (req, res) => {
       }catch(err){
         res.status(400).json(err);
       }
+    }
+      else{
+
+        res.render('login');
+      }
+
+
     });
 
 
@@ -120,6 +170,8 @@ router.get('/', async (req, res) => {
       } catch (err) {
         res.status(500).json(err);
       }
+
+    
     });
 
 

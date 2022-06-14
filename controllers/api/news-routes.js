@@ -25,9 +25,12 @@ router.post("/",upload.single('files'),async(req,res) =>{
     console.log(req.file);*/
    // res.session.loggedIn = true;
    
+   req.session.save(() => {
+          
+    req.session.loggedIn = true;
 
-
-    res.redirect('/news');
+    res.redirect('/news',{loggedIn:req.session.loggedIn});
+  });
   });
 
   module.exports = router;

@@ -29,7 +29,7 @@ else if(nextCall === "SIGN UP"){
 }else if(nextCall === "CONTACT"){
     window.location.assign('/contact');
 }else if(nextCall === "HOME"){
-     window.location.assign('homepage');
+     window.location.assign('/');
 }else if(nextCall === "LOGOUT"){
     document.location.replace('/logout');
 }

@@ -1,32 +1,66 @@
 {{>navbar}}
 
-{{> donation}}
 
-<div class="w3-container w3-responsive w3-row-padding w3-display-middle w3-border-blue" style="overflow-auto;margin-top:60%">
+<div class="w3-card w3-hide-small w3-row-padding w3-display-right w3-opacity" style="width:100%;height:auto">
+
+    <img src="/images/donate3.jpg" alt="donation">
+   </div>
+
+<div class="w3-card w3-responsive w3-row-padding w3-display-middle w3-border-blue" style="overflow-auto;">
 <div class="w3-row">
-    <h5>Please enter item quantity in the text box provided below</h5>
+    {{#unless itemdisplay }}
+    <div class = "w3-col">
+    
        {{#each categories as |category|}}
       <div class="w3-col w3-container w3-border-blue">
          <li class = "w3-padding-16">
-         <a href = "" class="w3-button w3-black" id = {{category.category_id}}  >{{category.name}}</a>
+         <a href = "/api/donation/contribute/{{category.category_id}}/{{category.name}}" class="w3-button w3-black" id = {{category.category_id}}  >{{category.name}}</a>
             </li>
         <!--<h4>Category: {{donation.category.description}}</h4>-->
-       
-        <h5>Items: </h5>
-        {{#each category.items as |item|}}
+        </div>
+        {{/each}}
+   <a href = "/api/donation/" class="w3-button w3-grey" >Go to Donation page</a>
+    </div>
+    
+{{/unless}}
+
+{{#if itemdisplay}}
+<div class = "w3-col" id = "parent" data-categoryname={{catName}}>
+  Current Category: <strong>{{catName}}<strong><br>
+    <h5>Please enter item quantity in the text box provided below</h5><br>
+   
+
+         {{#each categories as |item|}}
+        
+     
         <div class = "w3-group">
-        <p>
-            {{item.name}} -  {{item.description}} :  <input class = "w3-input" id ={{category_id}}{{item_id}} type = "text" style = "width:10%" required> - <a href = "" class="w3-button w3-black btnDonate" data-item = {{item.item_id}} data-itemname = {{item.name}} data-category = {{item.category_id}} data-categoryname ={{category.name}} data-id = "">Donate</a>
-        </p>
-        
-        
-      </div>
-        {{/each}}
-        {{/each}}
+       <div class="container-lg " style="background-color:lightgrey">
+  <div class="row border border-dark">
+    <div class="col-lg">
+        {{item.name}}
     </div>
+    <div class="col-lg">
+         {{item.description}}
     </div>
+    <div class="col-lg">
+       <input class = "w3-input" id ={{item.category_id}}{{item.item_id}} type = "text" style = "width:50%" required>
+    </div>
+    <div class="col-lg">
+       <a href = "" class="w3-button w3-black btnDonate" data-item = {{item.item_id}} data-itemname = {{item.name}} data-category = {{item.category_id}}>Donate</a>
     </div>
 
+      </div>
+  <div>
+    
+  </div>
+        {{/each}}
+         {{/if}}
+</div>
+</div>
+ <a href = "/api/donation/contribute/" class="w3-button w3-grey" >All Categories</a>
+ <a href = "/api/donation/" class="w3-button w3-grey" >Go to Donation page</a>
+
+    </div>
 
 <script src="/js/donate.js"></script>
 
