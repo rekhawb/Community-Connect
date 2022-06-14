@@ -29,15 +29,17 @@
 <div class="comments">
   {{#each posts as |data|}}
   <section class="comment">
-    <div class="meta">
+    <div class="card">
     
     </div>
-    <div class="text">
+    <div class="card-body">
+      <div class="card-text">
       {{data.description}} - {{data.name}}
+      </div>
     </div>
   </section>
   {{/each}}
-</div>
+</div><br>
 
 </div>
 </div>
