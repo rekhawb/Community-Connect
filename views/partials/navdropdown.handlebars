@@ -1,0 +1,77 @@
+
+<div style="margin-top:5%;" >
+  <main class="w3-container ">
+    <!--<nav class="w3-sidebar w3-responsive w3-opacity w3-small w3-hide-small w3-left w3-grey">-->
+      <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:chocolate">
+    Welcome!
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown">
+    
+        <li>
+{{#unless loggedIn}}
+  <button class="w3-bar-item w3-button w3-padding-large">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </button>
+ </li>
+ <li>
+     <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>LOGIN</p>
+   </button>
+   {{/unless}}
+</li>
+<li>
+    <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>SIGN UP</p>
+  </button>
+
+  </li>
+  <li>
+   <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACT</p>
+   </button>
+</li>
+<li>
+{{#if loggedIn}}
+   <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>NEWS</p>
+  </button>
+</li>
+<li>
+   <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-eye w3-xxlarge"></i>
+    <p>GALLERY</p>
+  </button>
+</li>
+<li>
+    <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>EVENTS</p>
+  </button>
+</li>
+<li>
+    <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>DONATE</p>
+   </button>
+   
+{{/if}}
+   
+    </li>
+  {{#if loggedIn}}
+   <button class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>LOGOUT</p>
+   </button>
+{{/if}}
+</li>
+  
+   <!-- <button id="logout"class="w3-bar-item w3-button w3-padding-large w3-hover-blue btn">Logout</button>-->
+
+  </ul>
+</div>

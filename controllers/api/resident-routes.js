@@ -26,13 +26,13 @@ router.post('/login', async (req, res) => {
         req.session.loggedIn = true;
         req.session.user = userData.name;
         if( userData.name === "admin"){
-          console.log(userData.name);
+          //console.log(userData.name);
           req.session.admin = true;
         }
 
-        console.log(req.session.loggedIn);
-        console.log(req.session.user_id);
-        console.log(req.session.admin);
+       // console.log(req.session.loggedIn);
+        //console.log(req.session.user_id);
+        //console.log(req.session.admin);
 
         //console.log(req.session.logged_in);
        // console.log(`RESIDENT_ID: ${userData.resident_id}`);
