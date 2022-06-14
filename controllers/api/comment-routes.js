@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Usercomment } = require('../../models');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -11,6 +12,74 @@ router.get('/', (req, res) => {
       });
 });
 
+router.get('/:id', async (req, res) => {
+
+  try{
+    const query =  "select c.comment_id,c.post_id,c.resident_id,c.description,r.name from usercomment c  INNER JOIN resident r ON c.resident_id = r.resident_id and c.post_id = "+req.params.id+";"
+   
+
+  const commentData = await sequelize.query(
+      query, 
+      
+      { 
+        type: sequelize.QueryTypes.SELECT 
+      }
+    );
+
+      const posts= commentData;
+
+     // console.log(posts);
+     req.session.save(() => {
+          
+      req.session.loggedIn = true;
+      
+      res.render('addnewcomment', {
+          posts,loggedIn:req.session.loggedIn
+
+      });
+    });
+  }
+  catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+
+});
+
+router.get('/all/:id', async (req, res) => {
+
+  try{
+    const query =  "select c.comment_id,c.post_id,c.resident_id,c.description,r.name from usercomment c  INNER JOIN resident r ON c.resident_id = r.resident_id and c.post_id = "+req.params.id+";"
+   
+
+  const commentData = await sequelize.query(
+      query, 
+      
+      { 
+        type: sequelize.QueryTypes.SELECT 
+      }
+    );
+
+      const posts= commentData;
+
+     // console.log(posts);
+     req.session.save(() => {
+          
+      req.session.loggedIn = true;
+      
+      res.render('comments', {
+          posts,loggedIn:req.session.loggedIn
+
+      });
+    });
+  }
+  catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+
+});
+
 router.post('/', withAuth, (req, res) => {
   // check the session
   if (req.session) {
@@ -18,7 +87,7 @@ router.post('/', withAuth, (req, res) => {
       description: req.body.comment_text,
       post_id: req.body.post_id,
       // use the id from the session
-     // resident_id: req.session.user_id,
+     resident_id: req.session.user_id,
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {

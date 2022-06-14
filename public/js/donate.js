@@ -56,9 +56,10 @@ btnDelete.forEach(link => link.addEventListener('click',async(e)=>{
     e.stopPropagation();
     
 
-
+//alert("delete called");
     try{
         var participant_id = e.target.getAttribute('data-participant');
+        //alert(participant_id)
 
         const response = await fetch(`/api/donation/${participant_id}`, {
             method: 'DELETE'
@@ -69,7 +70,7 @@ btnDelete.forEach(link => link.addEventListener('click',async(e)=>{
             window.location.assign('/api/donation/view');
             
           } else {
-            alert('Failed to add a new donation');
+            alert('Failed to delete selected donation');
             window.location.assign('/api/donation/view');
           }
         } catch(err){

@@ -21,7 +21,8 @@ async function commentFormHandler(event) {
       
         if (response.ok) {
           //document.location.reload();
-          document.location.replace('/api/posts');
+        //  window.location.assign('/api/posts/all');
+        window.location.reload();
         } else {
           alert(response.statusText);
         }

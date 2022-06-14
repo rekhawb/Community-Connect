@@ -1,21 +1,49 @@
-{{> postinfo post}}
+{{>navbar}}
 
-<!-- displaying form and comments-->
+<!-- displaying form and comments {{> postinfo post}}-->
 
 {{!-- {{#if loggedIn}} --}}
+<div class="w3-card w3-hide-small w3-row-padding w3-display-right w3-opacity" style="width:100%;height:auto">
+
+    <img src="/images/event2.jpg" alt="donation">
+   </div>
+
+<div class="w3-container w3-responsive w3-display-middle w3-red  w3-opacity w3-border-blue news" style = "width:70%;overflow-y:scroll;height:70%">
+  <div>
+<a href = "/api/posts/" class="w3-button w3-grey" >Go to Event page</a>
+
+    </div><br>
+
 <form class="comment-form">
   <div>
-    <textarea class="ml-5" name="comment-body"></textarea>
-  </div>
+    <textarea class="" name="comment-body" style="width:100%"></textarea>
+  </div><br>
 
   <div>
-    <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
+    <button type="submit" class="" style="width:30%">Add Comment</button>
+  <!--  <button class="button is-warning" type="submit">add comment</button>-->
   </div>
   
 </form>
 {{!-- {{/if}} --}}
+<div class="comments">
+  {{#each posts as |data|}}
+  <section class="comment">
+    <div class="card">
+    
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+      {{data.description}} - {{data.name}}
+      </div>
+    </div>
+  </section>
+  {{/each}}
+</div><br>
 
-{{> comments post.comments}}
+</div>
+</div>
+   
 
 {{!-- {{#if loggedIn}} --}}
 <script src="/js/comment.js"></script>
