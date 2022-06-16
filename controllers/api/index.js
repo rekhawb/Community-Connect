@@ -12,7 +12,6 @@ const galleryRoutes = require('./gallery-routes');
 
 
 
-
 router.use('/donation', donationRoutes);
 //router.use('/viewdonation', donationRoutes);
 
@@ -23,6 +22,8 @@ router.use('/newsupload',newsRoutes);
 
 router.use('/comments', commentRoutes);
 router.use('/galleryupload',galleryRoutes);
+
+
 
 
 module.exports = router;

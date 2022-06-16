@@ -4,6 +4,7 @@ const Category = require('./category');
 const Item = require('./item');
 const Eventpost = require('./eventpost');
 const Usercomment = require('./usercomment');
+const Contact = require('./contact');
 
 
 Resident.hasMany(Participant, {
@@ -108,5 +109,6 @@ module.exports = {
     Category,
     Item,
     Eventpost,
-    Usercomment
+    Usercomment,
+    Contact
 };

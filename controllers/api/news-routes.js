@@ -24,12 +24,13 @@ router.post("/",upload.single('files'),async(req,res) =>{
     console.log(pathName);
     console.log(req.file);*/
    // res.session.loggedIn = true;
+   //{loggedIn:req.session.loggedIn},
    
    req.session.save(() => {
           
     req.session.loggedIn = true;
 
-    res.redirect('/news',{loggedIn:req.session.loggedIn});
+  res.redirect('/news');
   });
   });
 
