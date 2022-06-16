@@ -1,54 +1,28 @@
 {{>navbar}}
 
-
-<div class="hero is-fullheight has-background">
+<div class="w3-card w3-responsive w3-row-padding w3-display-middle news" style = " overflow: auto;outline-style: solid; width:60%;height:auto">
   <img alt="Contact" class="hero-background is-transparent" src="/images/contact.jpg" />
   <div class="hero-body">
     <div class="container">
-      <center class="title is 2">Conact Us</center>
-      <form action="/action_page.php" class="">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="John">
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Smith">
-        <label for="lname">E-mail</label>
-        <input type="text" id="email" name="email" placeholder="abc@aol.com">
+      <center class="title is 2">Contact Us</center>
+     <form class="form contact-form">
+   
+        <label for="email">E-mail</label>
+        <input type="text" id="email" name="email" placeholder="valid email address required" required>
+        <label for="contact">Contact#</label>
+        <input type="text" id="contact" name="contact" placeholder="###-###-####">
         <label for="subject">What can we help you with?</label>
-        <div class="container">
-          <textarea id="subject" class="textarea" name="subject" placeholder="Write something..."></textarea>
-        </div>
-        <input type="submit" value="Submit">
+        
+          <textarea id="subject" class="textarea" name="subject" placeholder="message required"></textarea>
+ 
+        <input class ="btn btn-warning" type="submit" value="Submit">
       </form>
     </div>
   </div>
 </div>
+</div>
 
 
-{{!-- <div class="container">
-  <div class="block">
-    <h2>Contact Us</h2>
 
-  </div>
-  <div class="block">
-    <div class="column">
-      <div class="image is-2by1">
-        <img src="/images/contact.jpg">
-
-      </div>
-      <div class="container is-fluid">
-        <form action="/action_page.php" class="">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="John">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Smith">
-          <label for="subject">What can we help you with?</label>
-          <textarea id="subject" name="subject" placeholder="Write something..."
-            style="height:170px width:100%"></textarea>
-          <input type="submit" value="Submit">
-        </form>
-      </div>
-    </div>
-  </div> --}}
-
-  <script src="/js/homepage.js"></script>
+  <script src="/js/contact.js"></script>
 

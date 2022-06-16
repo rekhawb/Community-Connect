@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-const phoneValidationRegex = /\d{3}-\d{3}-\d{4}/;
 
 class Resident extends Model {
   checkPassword(loginPw) {
@@ -49,10 +48,8 @@ Resident.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        validator: function (v) {
-          return phoneValidationRegex.test(v);
+        is:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/,
         },
-      }
     },
     isAdmin: {
       type: DataTypes.STRING,

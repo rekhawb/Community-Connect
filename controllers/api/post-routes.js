@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Eventpost, Resident, Usercomment } = require('../../models');
+const { Eventpost, Resident, Usercomment,Contact} = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -184,6 +184,33 @@ router.post('/addevent',async (req, res)=>{
 }  
 
 });
+
+
+
+
+router.post('/contact',async (req, res)=>{
+
+  try{
+    console.log(req.body);
+   
+      const newmessage = await Contact.create({
+       email:req.body.email,
+       phone:req.body.contact,
+       message:req.body.message
+       },
+       
+       );
+      // res.status(201).json(newevent);
+ 
+      res.status(200).json(newmessage);
+ 
+  } catch(err) {
+   console.log(err);
+   res.status(500).json(err);
+ }  
+ 
+ });
+
 
 
 router.delete('/:id',  (req, res) => {
