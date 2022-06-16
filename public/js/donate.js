@@ -21,6 +21,7 @@ item_name = e.target.getAttribute('data-itemname');
 category_id = e.target.getAttribute('data-category');
 //alert("categoryId:"+category_id);
 category_name = document.getElementById("parent").getAttribute("data-categoryname");//.getAttribute('data-categoryname');
+//alert(category_name);
 
 qty =category_id + item_id;
 

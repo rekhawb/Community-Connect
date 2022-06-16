@@ -73,7 +73,7 @@ router.get('/', async (req, res) => {
         //console.log(req.session.viewDonate);
         //res.status(200).json(categories);
     
-        res.render('contribute', { categories,loggedIn:req.session.loggedIn,itemdisplay:req.session.itemdisplay});
+        res.render('contribute', { categories,loggedIn:req.session.loggedIn,itemdisplay:req.session.itemdisplay,user_id:req.session.user_id});
       });
       } catch (err) {
         //console.log(err);
@@ -111,7 +111,7 @@ router.get('/', async (req, res) => {
         //console.log(req.session.viewDonate);
         //res.status(200).json(categories);
     
-        res.render('contribute', { categories,loggedIn:req.session.loggedIn,itemdisplay:req.session.itemdisplay,catName:req.session.catName});
+        res.render('contribute', { categories,loggedIn:req.session.loggedIn,itemdisplay:req.session.itemdisplay,catName:req.session.catName,user_id:req.session.user_id});
       });
       } catch (err) {
         //console.log(err);
