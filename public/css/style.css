@@ -23,8 +23,9 @@ h1, h2, h3, h4, h5, h6 {
   border-style: solid;
 }
 
-
-
+#newsMain{
+  padding-top: 89px
+}
 
 * {box-sizing: border-box}
 
