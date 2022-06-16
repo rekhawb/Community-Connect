@@ -33,10 +33,10 @@ router.get('/all', async (req, res) => {
       const posts= postData;
 
      // console.log(posts);
-
+     req.session.save(() => {
       res.render('posts', {
-          posts,loggedIn:req.session.loggedIn
-
+          posts,loggedIn:req.session.loggedIn,user_id:req.session.user_id
+        });
       });
   }
   catch (err) {

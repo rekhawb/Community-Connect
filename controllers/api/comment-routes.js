@@ -26,15 +26,17 @@ router.get('/:id', async (req, res) => {
       }
     );
 
-      const posts= commentData;
+      
 
      // console.log(posts);
      req.session.save(() => {
           
       req.session.loggedIn = true;
+
+      const posts= commentData;
       
       res.render('addnewcomment', {
-          posts,loggedIn:req.session.loggedIn
+          posts,loggedIn:req.session.loggedIn,user_id:req.session.user_id
 
       });
     });
@@ -82,6 +84,7 @@ router.get('/all/:id', async (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
   // check the session
+  console.log(req.session.user_id);
   if (req.session) {
    Usercomment.create({
       description: req.body.comment_text,
