@@ -1,21 +1,20 @@
 {{>navbar}}
 {{#if loggedIn}}
-<div class="w3-container w3-responsive w3-border-blue news" id="newsMain" style = "overflow-x:auto">
-{{>newsform}}
-<div class="w3-card-4" >
-{{#each news as |data| }}
-<div class="card">
-  <div class="card-content">
-      <h4>{{data.name}}</h4>
-    <div class="content">
-    {{data.description}}
+<div class="w3-container w3-responsive w3-border-blue news" id="newsMain" style="overflow-x:auto">
+  {{>newsform}}
+  <div class="w3-card-4">
+    {{#each news as |data| }}
+    <div class="card">
+      <div class="card-content">
+        <h4>{{data.name}}</h4>
+        <div class="content">
+          {{data.description}}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-{{/each}}
-</div><br>
+    {{/each}}
+  </div><br>
 </div>
 {{/if}}
 
 <script src="/js/news.js"></script>
-
