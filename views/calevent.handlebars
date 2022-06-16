@@ -1,31 +1,29 @@
+<div class="w3-container w3-responsive w3-display-middle">
 
+  <div class="w3-row w3-border w3-center">
+    {{#each months as |month|}}
 
-  <div class="w3-container w3-responsive w3-display-middle">
- 
-      <div  class="w3-row w3-border w3-center">
-      {{#each months as |month|}}
-   
-  <div class="w3-card " style="padding-right:10px">
+    <div class="w3-card " style="padding-right:10px">
 
-<header class="w3-container w3-blue ">
-  <h1>{{month.name}}</h1>
-  <h2> {{month.month}} / {{month.day}}</h2>
-</header>
+      <header class="w3-container w3-blue ">
+        <h1>{{month.name}}</h1>
+        <h2> {{month.month}} / {{month.day}}</h2>
+      </header>
 
-<div class="w3-container">
-   
-  <p> {{month.description}}</p>
-</div>
-<div>
-<button class="w3-button w3-green">Register</button>
+      <div class="w3-container">
+
+        <p> {{month.description}}</p>
+      </div>
+      <div>
+        <button class="w3-button w3-green">Register</button>
+      </div>
+      <footer class="w3-container  w3-blue">
+        <h5>{{month.month_name}} - {{month.year}}</h5>
+      </footer>
+
+    </div>
+    {{/each}}
   </div>
-<footer class="w3-container  w3-blue">
-  <h5>{{month.month_name}} - {{month.year}}</h5>
-</footer>
-
-</div>
-{{/each}}
-</div>
 
 </div>
 

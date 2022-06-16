@@ -1,44 +1,41 @@
 {{>navbar}}
-  <div class="w3-card w3-hide-small w3-row-padding w3-display-right w3-opacity" style="width:100%;height:auto">
- 
+<div class="w3-card w3-hide-small w3-row-padding w3-display-right w3-opacity" style="width:100%;height:auto">
 
-    <img src="/images/event2.jpg" alt="donation">
-   </div>
-<div class="w3-container w3-responsive w3-display-middle w3-pink  w3-border-blue news" style = "width:70%;overflow-y:scroll;height:70%">
-<article>  
-   <div>
-<a href = "/api/posts/" class="w3-button w3-grey" >Go to Event page</a>
+
+  <img src="/images/event2.jpg" alt="donation">
+</div>
+<div class="w3-container w3-responsive w3-display-middle w3-pink  w3-border-blue news"
+  style="width:70%;overflow-y:scroll;height:70%">
+  <article>
+    <div>
+      <a href="/api/posts/" class="w3-button w3-grey">Go to Event page</a>
 
     </div><br>
-  <form class="edit-post-form">
-    <div>
+    <form class="edit-post-form">
+      <div>
         <label for="post-title">Event Name:</label>
-      <input class="input" name="post-title" type="text" value="{{post.name}}" />
-    </div>
-    <div>
+        <input class="input" name="post-title" type="text" value="{{post.name}}" />
+      </div>
+      <div>
         <label for="post-content">Event Description:</label>
-      <input class="textarea" name="post-content" type="text" value="{{post.description}}" />
-    </div>
+        <input class="textarea" name="post-content" type="text" value="{{post.description}}" />
+      </div>
 
       <div>
         <label for="post-content">Event Date: {{post.event_dt}}</label>
-     
-    </div>
 
-    
-    <div class="is-pulled-right">
+      </div>
 
-     
-
-      <a href="/api/comments/all/{{post.post_id}}">View comments</a>
-
-    </div>
-    <div>
-    <button type="submit" class="button is-success">SAVE</button>
-    </div><br>
-    <button type="button" class="button is-danger delete-post-btn">DELETE</button>
-  </form>
-</article>
+      <div class="is-pulled-right">
+        <a href="/api/comments/all/{{post.post_id}}">View comments</a>
+      </div>
+      
+      <div>
+        <button type="submit" class="button is-success">SAVE</button>
+      </div><br>
+      <button type="button" class="button is-danger delete-post-btn">DELETE</button>
+    </form>
+  </article>
 </div>
 <script src="/js/editevent.js"></script>
 <script src="/js/deleteevent.js"></script>

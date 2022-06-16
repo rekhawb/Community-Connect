@@ -1,59 +1,47 @@
-
-
 {{>navbar}}
 
 <div class="w3-card w3-hide-small w3-row-padding w3-display-right w3-opacity" style="width:100%;height:auto">
 
-    <img src="/images/event2.jpg" alt="donation">
-   </div>
+  <img src="/images/event2.jpg" alt="donation">
+</div>
 
+<div class="w3-container w3-responsive w3-display-middle w3-border-blue news"
+  style="width:100%;overflow-y:scroll;height:70%">
+  <div>
+    <a href="/api/posts/" class="w3-button w3-grey">Go to Event page</a>
 
+  </div>
 
+  <div class="row" style="margin-bottom: 1em">
 
-<div class="w3-container w3-responsive w3-display-middle w3-border-blue news" style = "width:100%;overflow-y:scroll;height:70%">
-    <div>
-<a href = "/api/posts/" class="w3-button w3-grey" >Go to Event page</a>
+    {{#each posts as |post|}}
 
+    <div class="col" style="margin-bottom: 1em;">
+
+      <div class="card" style="width: 18rem; ">
+
+        <div class="card-body">
+          <h5 class="card-title bg-secondary text-white"><a href="/api/posts/{{post.post_id}}"
+              class="has-text-black is-capitalized  is-pulled-left">{{post.event_name}} </a></h5>
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <p class="card-text" class="has-text-black is-pulled-left">{{post.event_desc}}.</p>
+          </li>
+          <li class="list-group-item">Event Date: {{post.event_date}}.</li>
+          <li class="list-group-item">By: {{post.resident_name}}</li>
+        </ul>
+        <div class="card-body">
+
+          <a href="/api/comments/{{post.post_id}}"><button class="btn btn-success btn-sm text-nowrap">Add
+              Comment</button></a>
+        </div>
+      </div>
     </div>
-  
-  <div class = "row" style="margin-bottom: 1em">
 
-{{#each posts as |post|}}
-
-
-  <div class="col" style="margin-bottom: 1em;">
-
-<div class="card" style="width: 18rem; ">
- 
-  <div class="card-body">
-    <h5 class="card-title bg-secondary text-white"><a href="/api/posts/{{post.post_id}}"  class="has-text-black is-capitalized  is-pulled-left">{{post.event_name}} </a></h5>
-   
-  </div>
-  <ul class="list-group list-group-flush">
-      <li class="list-group-item"><p class="card-text" class="has-text-black is-pulled-left">{{post.event_desc}}.</p></li>
-    <li class="list-group-item">Event Date: {{post.event_date}}.</li>
-    <li class="list-group-item">By: {{post.resident_name}}</li>
-  </ul>
-  <div class="card-body">
-    
-    
-      <a href="/api/comments/{{post.post_id}}"><button class="btn btn-success btn-sm text-nowrap">Add Comment</button></a>
+    {{/each}}
   </div>
 </div>
 </div>
-
-
-
-
-
-
-{{/each}}
 </div>
-</div>
-</div>
-</div>
-
-
-
-
-
