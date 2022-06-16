@@ -4,11 +4,11 @@ const contactFormHandler = async (event) => {
     event.preventDefault();
   
     const email = document.querySelector('#email').value.trim();
-    alert(email);
+    //alert(email);
     const contact = document.querySelector('#contact').value.trim();
-    alert(contact);
+    //alert(contact);
     const message = document.querySelector('#subject').value.trim();
-    alert(message);
+    //alert(message);
     if (email && message) {
       const response = await fetch('/api/posts/contact', {
         method: 'POST',
