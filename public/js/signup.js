@@ -25,7 +25,7 @@ const signupFormHandler = async (event) => {
         window.location.assign('/');
       } else {
         //alert(response.statusText);
-        alert(response.sqlMessage);
+        alert(response.statusText);
 
       }
     }

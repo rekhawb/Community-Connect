@@ -70,7 +70,7 @@ router.get('/myevents', async (req, res) => {
       req.session.editpost= true;
 
       res.render('myevents', {
-          posts,loggedIn:req.session.loggedIn,editpost:req.session.editpost
+          posts,loggedIn:req.session.loggedIn,editpost:req.session.editpost,user_id:req.session.user_id
 
       });
     });
