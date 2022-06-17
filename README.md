@@ -55,6 +55,13 @@ The following tasks are on our roadmap:
 - Ability to connect user's Community Connect account with their social media account
 - Adding navbar to each page
 
+## video walkthrough and app link
+
+https://drive.google.com/file/d/1bqJFNVb1cijUqoCZ9uCqAypAIurVi_Uo/view
+
+https://gentle-peak-70353.herokuapp.com/
+
+
 
 ## Team
 
